@@ -1,0 +1,115 @@
+import java.util.Scanner;
+class Main 
+{
+    private int array[]; //store elements of stack
+    private int top; //represent top of stack
+    private int capacity; //total capacity of the stack
+    //creating a stack
+    Main(int size) //constructor
+    {
+        //initialize the stack variables
+        array=new int[size]; //initialize the array
+        capacity=size;
+        top=-1;
+    }
+    //push elements to the top of stack
+    public void push(int element) 
+    {
+        if(isFull()==true) 
+        {
+            System.out.println("Stack OverFlow");//this will terminate the program or //System.exit(1);
+        }
+        else
+        {   
+            //insert element on top of stack
+            System.out.print("Enter element in stack: ");
+            Scanner sc1=new Scanner(System.in);
+            element=sc1.nextInt();
+            top=top+1;
+            array[top]=element;
+            //array[++top] = x;
+            System.out.println("Element inserted in stack");
+        }
+    }
+    //pop elements from top of stack
+    public void pop() 
+    {
+        //if stack is empty
+        //no element to pop
+        if(isEmpty()==true) 
+        {
+            System.out.println("Stack Underflow");
+            //terminates the program
+            //System.exit(1);
+        }
+        else
+        {
+            top=top-1;
+            System.out.println("Element deleted from stack");
+        }
+        //pop element from top of stack
+        //return array[top--];
+    }
+    //return size of the stack
+    public int getSize() 
+    {
+        return top + 1;
+    }
+    //check if the stack is empty
+    public Boolean isEmpty() 
+    {
+        if(top==-1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        //return top==-1;
+    }
+    //check if the stack is full
+    public Boolean isFull() 
+    {
+        if(top==capacity-1)
+        {
+            return true;
+        }
+      else
+        {
+            return false;
+        }
+    }
+    // display elements of stack
+    public void display() 
+    {
+        for (int i=0;i<=top;i++) 
+        {
+            System.out.print(array[i]+",");
+        }
+    }
+    public static void main(String[] args) 
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Enter number of elements in stack: ");
+        int number=sc.nextInt();
+        Main stack=new Main(number);
+        int element=0;
+        stack.push(element);
+        stack.push(element);
+        //stack.push(element);
+        //stack.push(element);
+        //stack.push(element);
+        System.out.print("Stack is: ");
+        stack.display();
+        //remove element from stack
+        stack.pop();
+        //stack.pop();
+        System.out.print("After popping out Stack is: ");
+        stack.display();
+    }
+}
+
+
+
+

@@ -1,0 +1,58 @@
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) 
+	{
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("Enter number of rows=columns= ");
+	    int number=sc.nextInt();
+	    int array[][]=new int[number][number];
+	    for(int i=0;i<number;i++)
+	    {
+	        for(int j=0;j<number;j++)
+	        {
+	            System.out.println("Enter element of array= ");
+	            array[i][j]=sc.nextInt();
+	        }
+	    }
+	    int diagonal_element_sum=0;
+	    int all_digit_sum=0;
+	    int single_digit_sum=0;
+	    for(int i=0;i<number;i++)
+	    {
+	        for(int j=0;j<number;j++)
+	        {
+	            if(i==j)
+	            {
+	                diagonal_element_sum=diagonal_element_sum+array[i][j];
+	            }
+	        }
+	    }
+	    //System.out.println("diagonal_element_sum is: "+diagonal_element_sum);
+	    for(int i=0;i<number;i++)
+	    {
+	        for(int j=0;j<number;j++)
+	        {
+	            all_digit_sum=all_digit_sum+array[i][j];
+	        }
+	    }
+	    //System.out.println("all_digit_sum is: "+all_digit_sum);
+	    int rem;
+	    if(all_digit_sum>=10)
+	    {
+	        while(all_digit_sum>0)
+	        {
+	            rem=all_digit_sum%10;
+	            single_digit_sum=single_digit_sum+rem;
+	            all_digit_sum=all_digit_sum/10;
+	        }
+	    }
+	    else
+	    {
+	        single_digit_sum=all_digit_sum;
+	    }
+	    //System.out.println("single_digit_sum is: "+single_digit_sum);
+	    int quotient=diagonal_element_sum/single_digit_sum;
+		System.out.println("Quotient is: "+quotient);
+	}
+}

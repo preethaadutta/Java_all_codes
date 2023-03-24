@@ -1,0 +1,131 @@
+//Input:[1,2,3,4,5]
+//Output:[4,5] as k=2 so last 2 elements
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) 
+	{
+	    Scanner in=new Scanner(System.in);
+        int k=2;
+	    System.out.print("Enter number of elements in array:");
+        int n=in.nextInt();
+        int a1[]=new int[n];
+        System.out.println("Enter the elements of 1st array:");
+        for(int i=0;i<n;i++)
+        {
+            a1[i]=in.nextInt();
+        }
+        int a2[]=new int[k];
+        for(int j=0;j<k;j++)
+        {
+            a2[j]=a1[n-k+j];
+        }
+        System.out.println("array is:");
+        for(int i=0;i<k;i++)
+        {
+            System.out.print(a2[i]+" ");
+        }
+	}
+}
+
+//=======================================================================================//
+
+//Input:[1,2,3,4,5]
+//Output:[1,2,1,2,3]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) 
+	{
+	    Scanner in=new Scanner(System.in);
+	    System.out.print("Enter number of elements in array:");
+        int n=in.nextInt();
+        int a1[]=new int[n];
+        System.out.println("Enter the elements of 1st array:");
+        for(int i=0;i<n;i++)
+        {
+            a1[i]=in.nextInt();
+        }
+        for(int i=n-1;i>1;i--)
+        //for(int i=n-1;i>0;i--)
+        {
+            a1[i]=a1[i-2];
+            //a1[i]=a1[i-1];
+        }
+        System.out.println("array is:");
+        for(int i=0;i<n;i++)
+        {
+            System.out.print(a1[i]+" ");
+        }
+	}
+}
+
+//=======================================================================================//
+
+//Rotate the array 2 steps:-Input:[1,2,3,4,5]
+//1st step:[5,1,2,3,4]
+//2nd step:[4,5,1,2,3]
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) 
+	{
+	    Scanner in=new Scanner(System.in);
+        int k=2;
+	    System.out.print("Enter number of elements in array:");
+        int n=in.nextInt();
+        int a1[]=new int[n];
+        System.out.println("Enter the elements of 1st array:");
+        for(int i=0;i<n;i++)
+        {
+            a1[i]=in.nextInt();
+        }
+        int a2[]=new int[k];
+        for(int j=0;j<k;j++)
+        {
+            a2[j]=a1[n-k+j];
+        }
+        for(int i=n-1;i>1;i--)
+        {
+            a1[i]=a1[i-2];
+        }
+        for(int s=0;s<k;s++)
+        {
+            a1[s]=a2[s];
+        }
+        System.out.println("array is:");
+        for(int i=0;i<n;i++)
+        {
+            System.out.print(a1[i]+" ");
+        }
+	}
+}
+
+//=======================================================================================//
+
+import java.util.*;
+class Main 
+{
+    public int maxArea(int[] height,int n)
+    {
+        int a=height[n-1]*height[n-1];
+        return a;
+    }
+    public static void main(String[] args)
+    {
+        Scanner in=new Scanner(System.in);
+        int n=in.nextInt();
+        int[] height=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            height[i]=in.nextInt();
+        }
+        Main s=new Main();
+        int area=s.maxArea(height,n);
+        System.out.println(area);
+    }
+}
+
+//=======================================================================================//
+
